@@ -1,0 +1,90 @@
+ 
+                      // ATM WORKING
+
+#include<iostream>
+using namespace std;
+
+ string password="1234";//string pin;
+ double balance =10000.01000;double amount;
+ 
+ bool pin(string pass){
+    if(pass == password) return 1;
+    else return 0;
+ }
+
+int main(){
+    string pass ;
+    cout<<"\n\n\t enter the four digit password to login --> ";
+    cin>>pass;
+     
+    if(pass==password) {
+        cout<<"\n\t    WELCOME  THE TIWARI ATM \n";
+         cout<<"\n\t********** MENU **********\n";
+         cout<<"\t*  1.check balance       *\n";
+         cout<<"\t*  2.case deposite       *\n";
+         cout<<"\t*  3.case withdrawal     *\n";
+         cout<<"\t*  4.case transfer       *\n";
+         cout<<"\t*  5.exit                *\n";
+         cout<<"\t**************************\n";
+
+        int choice;
+        cout<<"\tENTER THE YOUR CHOICE--> ";
+        cin>>choice;
+
+        switch (choice){
+            case 1: cout<< "\t your available balance is : "<<balance<<endl;
+             cout<<"\n\t** THANKYOU TO USING ATM **\n";
+            break;
+
+            case 2:
+            cout<<"\tRE-ENTER THE FOUR DIGIT PASSWORD -->";
+            cin>>pass;
+            if(pin(pass)){
+                cout<<"\tENTER THE AMOUNT TO DEPOSITE-->";
+                cin>>amount;balance+=amount;
+                cout<<"\tDEPOSITE SUCCESSFULLY...\n";
+                cout<< "\tyour available balance is : "<<balance<<endl;
+                cout<<"\n\t** THANKYOU TO USING ATM **\n";
+            }else cout<<"\n\t TRY AGAIN !.. WRONG RE- ENTER PASSWORD...\n";
+
+            case 3:
+            cout<<"\tRE-ENTER THE FOUR DIGIT PASSWORD -->";
+            cin>>pass;
+            if(pin(pass)){
+                cout<<"\tENTER THE AMOUNT TO withdrawal-->";
+                cin>>amount;
+                if(amount <= balance){
+                balance-=amount;
+                cout<<"\tWITHDRAWAL SUCCESSFULLY...\n";
+                cout<< "\tyour available balance is : "<<balance<<endl;
+                cout<<"\n\t** THANKYOU TO USING ATM **\n";
+                }else cout<<"\tSORRY ! YOUR BALANCE IS INSUFFICENT  ... \n";
+            }else cout<<"\n\t TRY AGAIN !.. WRONG RE- ENTER PASSWORD...\n";
+            break;
+
+             case 4:
+            cout<<"\tRE-ENTER THE FOUR DIGIT PASSWORD -->";
+            cin>>pass;
+            if(pin(pass)){
+                cout<<"\tENTER THE AMOUNT TO TRANSFER-->";
+                cin>>amount;
+                if(amount <= balance){
+                balance-=amount;
+                cout<<"\tTRANSFER SUCCESSFULLY...\n";
+                cout<< "\tyour available balance is : "<<balance<<endl;
+                cout<<"\n\t** THANKYOU TO USING ATM **\n";
+                }else cout<<"\tSORRY ! YOUR BALANCE IS INSUFFICENT  ... \n";
+            }else cout<<"\n\t TRY AGAIN !.. WRONG RE- ENTER PASSWORD...\n";
+            break;
+
+               case 5: cout<< "\t**  THANKYOU TO USING ATM  ** : \n";
+            break;
+
+            default: cout<<"\t TRY AGAIN ! INVALID CHOICE....\n";
+
+
+        }
+
+    }else cout<<"\n\t TRY AGAIN !.. WRONG PASSWORD...\n";
+    
+}
